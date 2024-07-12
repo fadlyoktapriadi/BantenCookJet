@@ -26,9 +26,10 @@ fun FoodItem(
     title: String,
     desc: String,
     estimatePrice: String,
+    modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = Modifier
+        modifier
             .padding(start = 16.dp, top = 8.dp, end = 16.dp, bottom = 8.dp)
             .fillMaxWidth()
     ) {
@@ -36,7 +37,7 @@ fun FoodItem(
             painter = painterResource(image),
             contentDescription = title,
             contentScale = ContentScale.Crop,
-            modifier = Modifier
+            modifier = modifier
                 .size(80.dp)
                 .padding(end = 6.dp)
                 .clip(MaterialTheme.shapes.small)

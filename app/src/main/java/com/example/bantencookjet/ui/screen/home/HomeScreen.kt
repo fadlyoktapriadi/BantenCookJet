@@ -1,12 +1,11 @@
 package com.example.bantencookjet.ui.screen.home
 
-import android.annotation.SuppressLint
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -42,7 +41,7 @@ fun HomeScreen(
                 title = { Text("Banten Cook") },
                 actions = {
                     IconButton(onClick = { navController.navigate("about") }) {
-                        Icon(Icons.Default.Person, contentDescription = "About")
+                        Icon(Icons.Default.Person, contentDescription = "about_page")
                     }
                 }
             )
@@ -57,6 +56,7 @@ fun HomeScreen(
                     is UiState.Success -> {
                         HomeContent(
                             foods = uiState.data,
+                            navController = navController,
                             modifier = modifier.padding(paddingValues)
                         )
                     }
@@ -70,6 +70,7 @@ fun HomeScreen(
 @Composable
 fun HomeContent(
     foods: List<Food>,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier) {
@@ -79,7 +80,10 @@ fun HomeContent(
                     image = it.image,
                     title = it.name,
                     desc = it.description,
-                    estimatePrice = it.estimatePrice
+                    estimatePrice = it.estimatePrice,
+                    modifier = Modifier.clickable {
+                        navController.navigate("detail/${it.id}")
+                    }
                 )
             }
         }

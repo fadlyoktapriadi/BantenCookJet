@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.bantencookjet.ui.screen.about.AboutScreen
+import com.example.bantencookjet.ui.screen.detail.DetailScreen
 import com.example.bantencookjet.ui.screen.home.HomeScreen
 import com.example.bantencookjet.ui.theme.BantenCookJetTheme
 
@@ -17,9 +18,9 @@ fun FoodApp(
     val navController = rememberNavController()
     NavHost(navController, startDestination = "main") {
         composable("main") { HomeScreen(navController) }
-//        composable("detail/{item}") { backStackEntry ->
-//            DetailScreen(backStackEntry.arguments?.getString("item") ?: "")
-//        }
+        composable("detail/{foodId}") { backStackEntry ->
+            DetailScreen(navController,backStackEntry.arguments?.getString("foodId") ?: "")
+        }
         composable("about") { AboutScreen(navController) }
     }
 

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -68,20 +69,24 @@ fun AboutContent(
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
     ) {
         Image(
-            painter = painterResource(R.drawable.petrik),
+            painter = painterResource(R.drawable.fadly),
             contentDescription = "Gambar profile",
             modifier = Modifier
-                .size(256.dp)
-                .padding(bottom = 16.dp)
-                .clip(MaterialTheme.shapes.extraLarge)
+                .size(200.dp)
+                .padding(bottom = 16.dp, top = 24.dp)
+                .clip(CircleShape)
         )
         Text(
             text = "Fadly Oktapriadi",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
+        )
+        Text(
+            text = "fadlyoktapriadi41@gmail.com",
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal
         )
     }
 }
