@@ -17,7 +17,7 @@ class HomeViewModel(
     val uiState: StateFlow<UiState<List<Food>>>
         get() = _uiState
 
-    fun getAllRewards() {
+    fun getAllFood() {
         viewModelScope.launch {
             repository.getAllFood()
                 .catch {

@@ -21,7 +21,7 @@ class FoodRepository {
         return flowOf(foods)
     }
 
-    fun getOrderRewardById(foodId: Long): Food {
+    fun getFoodById(foodId: Long): Food {
         return foods.first {
             it.id == foodId
         }

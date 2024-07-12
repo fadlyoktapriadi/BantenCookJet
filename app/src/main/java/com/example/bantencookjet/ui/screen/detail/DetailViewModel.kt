@@ -20,7 +20,7 @@ class DetailViewModel(
     fun getFoodById(foodId: Long) {
         viewModelScope.launch {
             _uiState.value = UiState.Loading
-            _uiState.value = UiState.Success(repository.getOrderRewardById(foodId))
+            _uiState.value = UiState.Success(repository.getFoodById(foodId))
         }
     }
 }
